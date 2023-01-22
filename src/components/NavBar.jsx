@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -16,12 +15,8 @@ import ListItemText from "@mui/material/ListItemText";
 import FolderIcon from "@mui/icons-material/Folder";
 import ImageIcon from "@mui/icons-material/Image";
 import DescriptionIcon from "@mui/icons-material/Description";
-import InputBase from "@mui/material/InputBase";
-import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
-import { MenuItem } from "@mui/material";
-import Auth from "./Auth";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
@@ -49,44 +44,44 @@ export default function NavBar() {
         //changes the function state according to the value of open
         setState(open);
     };
-    const handleClick=()=>{
+    const handleClick = () => {
         localStorage.clear();
         window.location.replace("/")
     }
     const [isLoggedIn, setisLoggedIn] = useState(null);
-  const logIn = () => {
-    setisLoggedIn(true);
+    const logIn = () => {
+        setisLoggedIn(true);
 
 
-  };
-  
+    };
+
     return (
 
         <AppBar position="static">
             <Container maxWidth="lg" disableGutters={true}>
-                <Toolbar sx={{display:"flex", justifyContent:"space-between"}}>
-                    <Link to={"/home"} style={{ textDecoration: 'none', color:"#fff" }}>
-                    <Typography  variant="h6" sx={{ flexGrow: 1, fontWeight: 700 }}>
-                        Brand
-                    </Typography>
+                <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+                    <Link to={"/home"} style={{ textDecoration: 'none', color: "#fff" }}>
+                        <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 700 }}>
+                            Brand
+                        </Typography>
                     </Link>
 
                     <Box component="div" sx={{
                         display: {
                             xs: 'none',
                             sm: 'flex',
-                            
+
                         }
                     }}>
-                        
-                        
+
+
                         {!isLoggedIn &&
-            
-            <Button color="inherit" onClick={handleClick}>
-                             <Typography onClick={logIn}>LogOut</Typography>
-                              </Button>
-        }
-              
+
+                            <Button color="inherit" onClick={handleClick}>
+                                <Typography onClick={logIn}>LogOut</Typography>
+                            </Button>
+                        }
+
 
                     </Box>
 
@@ -157,7 +152,7 @@ export default function NavBar() {
                                 </ListItemButton>
                             </Box>
 
-                           
+
 
                             <Box sx={{
                                 display: "flex",
